@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chicks Animation with Continuous Stripes</title>
+  <style>
+    /* Обнуление стилей */
+    body, html {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Обновленный верхний контейнер */
+    .top-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(to bottom, #87CEEB, #B0E2FF);
+      z-index: 1000;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Стили для текста sosal */
+    .sosal-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 48px;
+      font-weight: bold;
+      color: rgba(206, 28, 28, 0.7);
+      text-transform: uppercase;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1001;
+    }
+
+    /* Фон на весь экран */
+    .background {
+      background: url('chicks.jpg') no-repeat center center fixed;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Контейнер для полос */
+    .stripe-container {
+      position: absolute;
+      width: 100%;
+      height: 79%;
+      overflow: hidden; /* Обрезаем содержимое */
+      bottom: 0;
+    }
+
+    /* Полоса */
+    .stripe {
+      position: absolute;
+      bottom: -20%; /* Начинает за пределами экрана снизу */
+      left: 50%;
+      width: 10px; /* Ширина полосы */
+      height: 20%; /* Высота полосы */
+      background: rgba(255, 255, 255, 0.7); /* Полупрозрачный белый цвет */
+      transform: translateX(-50%);
+      animation: moveStripe 2s linear infinite; /* Бесконечное движение */
+    }
+
+    /* Анимация движения полос */
+    @keyframes moveStripe {
+      0% {
+        bottom: -20%;
+      }
+      100% {
+        bottom: 100%;
+      }
+    }
+
+    /* GIF по центру */
+    .center-gif {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 150px; /* Фиксированная ширина */
+      height: 150px; /* Фиксированная высота */
+    }
+
+    /* Стили для кнопки "Начать" */
+    .start-button {
+      position: absolute;
+      bottom: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(45deg, #ff8a00, #ffbf28);  /* Градиентный фон */
+      color: white;
+      border: none;
+      border-radius: 35px;  /* Увеличен радиус скругления */
+      padding: 20px 50px;   /* Увеличены отступы */
+      font-size: 22px;      /* Увеличен размер шрифта */
+      cursor: pointer;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      box-shadow: 0 8px 20px rgba(255, 139, 0, 0.3);  /* Улучшена тень с цветом */
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);  /* Добавлена анимация */
+      font-weight: 700;     /* Сделан более жирным */
+      letter-spacing: 1px;  /* Увеличен межбуквенный интервал */
+      text-transform: uppercase;  /* Заглавные буквы */
+      border: 2px solid rgba(255, 255, 255, 0.2);  /* Добавлена тонкая обводка */
+    }
+
+    .start-button:hover {
+      background: linear-gradient(45deg, #ffa500, #ffd700);
+      box-shadow: 0 12px 25px rgba(255, 139, 0, 0.4);
+      transform: translateX(-50%) translateY(-4px);
+      letter-spacing: 2px;  /* Увеличиваем расстояние между буквами при наведении */
+    }
+
+    .start-button:active {
+      transform: translateX(-50%) translateY(-2px) scale(0.97);
+      box-shadow: 0 6px 15px rgba(255, 139, 0, 0.3);
+    }
+
+    /* Стили для облаков */
+    .cloud {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50px;
+      animation: floatCloud linear infinite;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: '';
+      position: absolute;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+    }
+
+    .cloud::before {
+      width: 50%;
+      height: 100%;
+      top: -40%;
+      left: 15%;
+    }
+
+    .cloud::after {
+      width: 40%;
+      height: 80%;
+      top: -30%;
+      right: 15%;
+    }
+
+    @keyframes floatCloud {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(100vw);
+      }
+    }
+
+    /* Обновляем стили для counter-container и arrow */
+    .counter-container {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px 20px;
+      margin-top: auto;  /* Добавляем это свойство */
+      margin-bottom: 0px;  /* Добавляем отступ снизу */
+      z-index: 1001;
+    }
+
+    .arrow {
+      width: 30px;
+      height: 30px;  /* Одинаковая высота и ширина для круга */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      opacity: 0.3;
+      transition: all 0.3s ease;
+      border-radius: 50%;  /* Делаем круглый фон */
+    }
+
+    .arrow.active {
+      opacity: 1;
+    }
+
+    .arrow.left {
+      background-color: #4CAF50;
+    }
+
+    .arrow.right {
+      background-color: #2196F3;
+    }
+
+    /* Стили для модального окна */
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.7);
+      background: white;
+      padding: 30px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+    }
+
+    .modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .modal h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .modal-button {
+      background: linear-gradient(45deg, #ff8a00, #ffbf28);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 12px 35px;
+      font-size: 18px;
+      cursor: pointer;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      box-shadow: 0 5px 15px rgba(255, 139, 0, 0.3);
+      transition: all 0.3s ease;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .modal-button:hover {
+      background: linear-gradient(45deg, #ffa500, #ffd700);
+      box-shadow: 0 8px 20px rgba(255, 139, 0, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1999;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Стили для кнопки Telegram */
+    .telegram-button {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(45deg, #0088cc, #00a2ff);
+      color: white;
+      border: none;
+      border-radius: 35px;
+      padding: 15px 40px;
+      font-size: 18px;
+      cursor: pointer;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      box-shadow: 0 8px 20px rgba(0, 136, 204, 0.3);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .telegram-button:hover {
+      background: linear-gradient(45deg, #0099e6, #00b3ff);
+      box-shadow: 0 12px 25px rgba(0, 136, 204, 0.4);
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    .telegram-button:active {
+      transform: translateX(-50%) translateY(-2px) scale(0.97);
+      box-shadow: 0 6px 15px rgba(0, 136, 204, 0.3);
+    }
+
+    /* Стили для кнопки Назад */
+    .back-button {
+      position: absolute;
+      bottom: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(45deg, #ff4757, #ff6b81);
+      color: white;
+      border: none;
+      border-radius: 35px;
+      padding: 20px 50px;
+      font-size: 22px;
+      cursor: pointer;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      box-shadow: 0 8px 20px rgba(255, 71, 87, 0.3);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .back-button:hover {
+      background: linear-gradient(45deg, #ff6b81, #ff8395);
+      box-shadow: 0 12px 25px rgba(255, 71, 87, 0.4);
+      transform: translateX(-50%) translateY(-4px);
+    }
+
+    .back-button:active {
+      transform: translateX(-50%) translateY(-2px) scale(0.97);
+      box-shadow: 0 6px 15px rgba(255, 71, 87, 0.3);
+    }
+  </style>
+<style type="text/css">.vue-slider-dot{position:absolute;-webkit-transition:all 0s;transition:all 0s;z-index:5}.vue-slider-dot:focus{outline:none}.vue-slider-dot-tooltip{position:absolute;visibility:hidden}.vue-slider-dot-hover:hover .vue-slider-dot-tooltip,.vue-slider-dot-tooltip-show{visibility:visible}.vue-slider-dot-tooltip-top{top:-10px;left:50%;-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%)}.vue-slider-dot-tooltip-bottom{bottom:-10px;left:50%;-webkit-transform:translate(-50%,100%);transform:translate(-50%,100%)}.vue-slider-dot-tooltip-left{left:-10px;top:50%;-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%)}.vue-slider-dot-tooltip-right{right:-10px;top:50%;-webkit-transform:translate(100%,-50%);transform:translate(100%,-50%)}</style><style type="text/css">.vue-slider-marks{position:relative;width:100%;height:100%}.vue-slider-mark{position:absolute;z-index:1}.vue-slider-ltr .vue-slider-mark,.vue-slider-rtl .vue-slider-mark{width:0;height:100%;top:50%}.vue-slider-ltr .vue-slider-mark-step,.vue-slider-rtl .vue-slider-mark-step{top:0}.vue-slider-ltr .vue-slider-mark-label,.vue-slider-rtl .vue-slider-mark-label{top:100%;margin-top:10px}.vue-slider-ltr .vue-slider-mark{-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vue-slider-ltr .vue-slider-mark-step{left:0}.vue-slider-ltr .vue-slider-mark-label{left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.vue-slider-rtl .vue-slider-mark{-webkit-transform:translate(50%,-50%);transform:translate(50%,-50%)}.vue-slider-rtl .vue-slider-mark-step{right:0}.vue-slider-rtl .vue-slider-mark-label{right:50%;-webkit-transform:translateX(50%);transform:translateX(50%)}.vue-slider-btt .vue-slider-mark,.vue-slider-ttb .vue-slider-mark{width:100%;height:0;left:50%}.vue-slider-btt .vue-slider-mark-step,.vue-slider-ttb .vue-slider-mark-step{left:0}.vue-slider-btt .vue-slider-mark-label,.vue-slider-ttb .vue-slider-mark-label{left:100%;margin-left:10px}.vue-slider-btt .vue-slider-mark{-webkit-transform:translate(-50%,50%);transform:translate(-50%,50%)}.vue-slider-btt .vue-slider-mark-step{top:0}.vue-slider-btt .vue-slider-mark-label{top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.vue-slider-ttb .vue-slider-mark{-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vue-slider-ttb .vue-slider-mark-step{bottom:0}.vue-slider-ttb .vue-slider-mark-label{bottom:50%;-webkit-transform:translateY(50%);transform:translateY(50%)}.vue-slider-mark-label,.vue-slider-mark-step{position:absolute}</style><style type="text/css">.vue-slider{position:relative;-webkit-box-sizing:content-box;box-sizing:content-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:block;-webkit-tap-highlight-color:rgba(0,0,0,0)}.vue-slider-rail{position:relative;width:100%;height:100%;-webkit-transition-property:width,height,left,right,top,bottom;transition-property:width,height,left,right,top,bottom}.vue-slider-process{position:absolute;z-index:1}</style></head>
+<body>
+  <div class="background">
+    <div class="top-container" id="cloudContainer">
+      <div class="sosal-text">CHICKY RUN</div>
+      <div class="counter-container" id="counterContainer"></div>
+    </div>
+
+    <!-- Контейнер для полос -->
+    <div class="stripe-container" id="stripe-container"></div>
+
+    <!-- GIF по центру -->
+    <img src="chicks.gif" class="center-gif" id="centerGif" alt="Chicks Animation">
+
+    <!-- Кнопка "Начать" -->
+    <button class="start-button" id="startButton">Start</button>
+
+    <!-- Кнопка "Назад" -->
+    <a href="https://entypublic.github.io/snakegameminivladis/" class="back-button">BACK</a>
+
+    <!-- Кнопка Telegram -->
+    <a href="https://t.me/minesprosignal_bot" class="telegram-button" target="_blank">@minesprosignal_bot</a>
+
+  </div>
+
+  <!-- Модальное окно -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div class="modal" id="gameEndModal">
+    <h2>Игра окончена!</h2>
+    <button class="modal-button" id="modalOkButton">OK</button>
+  </div>
+
+  <script src="script.js"></script>
+</body><div class="troywell-caa"><template shadowrootmode="open">
+    <style>
+    @import url("chrome-extension://adlpodnneegcnbophopdmhedicjbcgco/caa/styles.css");
+    </style>
+    <div id="troywell-caa" data-v-app=""><div data-v-f572ef8e="" class="content-app"><!----></div></div></template></div><div class="troywell-avia"><template shadowrootmode="open">
+    <style>
+    @import url("chrome-extension://adlpodnneegcnbophopdmhedicjbcgco/flight/styles.css");
+    </style>
+    <div id="troywell-avia" data-v-app=""><div class="app"><div data-v-dd12f266=""><!----></div></div></div></template></div></html>

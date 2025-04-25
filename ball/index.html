@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balloon Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div class="game-content">
+    <h1 class="game-title">BALLOON PREDICTOR</h1>
+    <!-- Шар и кнопка "Начать" -->
+    <div class="ball-container">
+      <img src="ballones.png" alt="Ball Icon" class="center-image" id="ball">
+      <div class="bet-display" id="betDisplay" style="opacity: 0;">
+        ₽0.00
+      </div>
+    </div>
+    <button class="start-button" id="startButton">Start</button>
+    <button class="start-button" onclick="window.location.href='https://entypublic.github.io/snakegameminivladis/'" style="margin-top: 20px;">Back</button>
+    <a href="https://t.me/minesprosignal_bot" class="telegram-button" target="_blank">
+      <img src="tg.png" alt="Telegram Icon" class="telegram-icon">
+      @minesprosignal_bot
+    </a>
+    <button class="restart-button" id="restartButton" style="display: none;">
+      <img src="restart.png" alt="Restart Icon">
+    </button>
+  </div>
+
+  <!-- Панель выбора валюты и ставки -->
+  <div class="betting-panel" id="bettingPanel" style="display: none;">
+    <h2 class="title">Select currency and enter bet amount:</h2>
+    <div class="currency-selector">
+      <label>
+        <input type="radio" name="currency" value="₽" id="currencyRub">
+        <span>Ruble</span>
+      </label>
+      <label>
+        <input type="radio" name="currency" value="$" id="currencyUsd">
+        <span>Dollar</span>
+      </label>
+      <label>
+        <input type="radio" name="currency" value="₹" id="currencyInr">
+        <span>Rupee</span>
+      </label>
+    </div>
+    <input type="number" id="betAmount" placeholder="Enter bet amount" class="bet-input">
+    <button class="confirm-button" id="confirmButton" disabled>Confirm</button>
+  </div>
+
+  <!-- Добавляем разметку для анимированного фона -->
+  <div class="animated-background">
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="cloud cloud-5"></div>
+    
+    <!-- Добавляем звезды -->
+    <div class="stars" id="stars"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,307 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('back.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.platform-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.platform {
+    position: absolute;
+    user-select: none;
+    cursor: pointer;
+    transition: opacity 0.5s, transform 0.3s;
+    transform-origin: center bottom;
+    z-index: 1;
+}
+
+.platform:hover {
+    filter: brightness(1.2);
+    transform: translateY(-5px) scale(1.05);
+}
+
+.platform-image {
+    width: 200px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+}
+
+.coefficient {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 38px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+.coefficient img {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+.cross {
+    display: none; /* Скрываем кресты на платформах */
+}
+
+.kangaroo {
+    position: absolute;
+    bottom: 30px;
+    left: 120px;
+    width: 150px;
+    height: 225px;
+    background-image: url('kengu.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transition: all 0.5s ease-out;
+    z-index: 100;
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.4));
+}
+
+.kangaroo.jump-end {
+    animation: bounce 0.3s ease-out;
+}
+
+@keyframes bounce {
+    0% { transform: scaleY(1); }
+    50% { transform: scaleY(0.8); }
+    100% { transform: scaleY(1); }
+}
+
+.play-button {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background-color: #FF9933;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-button:after {
+    content: "▶";
+}
+
+.play-button:hover {
+    background-color: #FF8000;
+    transform: scale(1.05);
+}
+
+.platform-new {
+    animation: platformAppear 0.5s forwards;
+}
+
+@keyframes platformAppear {
+    from {
+        transform: translateY(-30px) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Красивая кнопка назад */
+.back-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background-color: #FF9933;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 54px;
+    z-index: 200;
+}
+
+.back-button:before {
+    content: "←";
+    margin-right: 8px;
+    font-size: 22px;
+}
+
+.back-button:hover {
+    background-color: #FF8000;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Стили для кнопки Телеграмм */
+.telegram-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: #0088cc;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(135deg, #0088cc, #29b6f6);
+    height: 60px;
+    z-index: 200;
+    min-width: 250px;
+    justify-content: center;
+}
+
+.telegram-icon {
+    width: 34px;
+    height: 34px;
+    margin-right: 15px;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+}
+
+.telegram-button:hover {
+    background-image: linear-gradient(135deg, #29b6f6, #0088cc);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.telegram-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 767px) {
+    #kangaroo {
+        width: 120px;
+        height: 180px;
+    }
+    
+    .platform-image {
+        width: 140px;
+    }
+    
+    .coefficient {
+        top: 12px;
+        font-size: 26px;
+    }
+    
+    .coefficient img {
+        height: 55px;
+    }
+    
+    .play-button {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .back-button {
+        top: 20px;
+        left: 20px;
+        padding: 8px 16px;
+        font-size: 16px;
+        height: 44px;
+    }
+    
+    .telegram-button {
+        top: 20px;
+        right: 20px;
+        padding: 8px 20px;
+        font-size: 18px;
+        height: 50px;
+        min-width: 220px;
+    }
+    
+    .telegram-icon {
+        width: 28px;
+        height: 28px;
+        margin-right: 10px;
+    }
+}
+
+/* Еще более мелкие экраны */
+@media (max-width: 480px) {
+    .platform-image {
+        width: 80px;
+    }
+    
+    .coefficient {
+        top: -15px;
+    }
+    
+    .coefficient img {
+        height: 40px;
+    }
+    
+    .kangaroo {
+        width: 90px;
+        height: 135px;
+    }
+    
+    .back-button {
+        top: 15px;
+        left: 15px;
+        padding: 6px 12px;
+        font-size: 14px;
+        height: 38px;
+    }
+    
+    .telegram-button {
+        top: 15px;
+        right: 15px;
+        padding: 6px 15px;
+        font-size: 16px;
+        height: 45px;
+        min-width: 180px;
+    }
+    
+    .telegram-icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+    }
+} 

@@ -1,0 +1,628 @@
+/* Импортируем красивые шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: #000;
+}
+
+.game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Сразу устанавливаем космический фон */
+    background: linear-gradient(180deg, #001233 0%, #0a1a40 50%, #001233 100%);
+    --background-shift: 10vh;
+    --background-shift-high: 30vh;
+}
+
+/* Добавляем космические элементы */
+.space-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Удаляем старые стили для планеты и колец */
+/* Планета */
+.planet, .planet-ring {
+    display: none;
+}
+
+/* Сатурн с изображением - статичный с подсветкой */
+.saturn {
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    background: url('saturn.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    top: 15%;
+    right: 15%;
+    z-index: 1;
+    animation: saturn-glow 8s infinite alternate;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+    transition: opacity 1.5s ease, top 0s linear 1.5s, right 0s linear 1.5s, transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes saturn-glow {
+    0% { filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2)); }
+    50% { filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.6)); }
+    100% { filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3)); }
+}
+
+/* Туманность */
+.nebula {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    background: radial-gradient(ellipse at center, rgba(83, 11, 83, 0.3) 0%, rgba(0, 18, 51, 0) 70%);
+    bottom: 10%;
+    left: 5%;
+    filter: blur(10px);
+    opacity: 0.7;
+    animation: nebula-glow 15s infinite alternate;
+    transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes nebula-glow {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 200%;
+    opacity: 1; /* Звезды всегда видны */
+    background: url('stars.png');
+    background-size: cover;
+    pointer-events: none;
+    z-index: 1;
+    animation: stars-drift 120s infinite linear;
+    transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes stars-drift {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(5deg); }
+}
+
+/* Разные типы звезд с разными анимациями */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    z-index: 1;
+    transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.star-small {
+    width: 2px;
+    height: 2px;
+    animation: twinkle-small 3s infinite alternate;
+}
+
+.star-medium {
+    width: 3px;
+    height: 3px;
+    animation: twinkle-medium 4s infinite alternate;
+}
+
+.star-large {
+    width: 4px;
+    height: 4px;
+    animation: twinkle-large 5s infinite alternate;
+}
+
+.star-bright {
+    width: 3px;
+    height: 3px;
+    background: #fff;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    animation: pulse-bright 2s infinite alternate;
+}
+
+.star-colored {
+    width: 3px;
+    height: 3px;
+    animation: color-shift 8s infinite alternate;
+}
+
+@keyframes twinkle-small {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.3); }
+}
+
+@keyframes twinkle-medium {
+    0% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1.5); }
+}
+
+@keyframes twinkle-large {
+    0% { opacity: 0.4; transform: scale(1); }
+    33% { opacity: 0.6; transform: scale(1.3); }
+    66% { opacity: 0.8; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1.6); }
+}
+
+@keyframes pulse-bright {
+    0% { box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5); }
+    100% { box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.9); }
+}
+
+@keyframes color-shift {
+    0% { background: #ff8a8a; }
+    25% { background: #8a9eff; }
+    50% { background: #8affb9; }
+    75% { background: #ffde8a; }
+    100% { background: #d68aff; }
+}
+
+/* Исправленный метеор (комета) */
+.meteor {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 10px 2px rgba(255, 255, 255, 0.8),
+        0 0 20px 10px rgba(255, 255, 255, 0.4);
+    animation: meteor-fall 8s infinite;
+    opacity: 0;
+    z-index: 2;
+    transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Хвост кометы */
+.meteor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+    transform: translateX(-100%) translateY(-50%);
+    z-index: 1;
+}
+
+@keyframes meteor-fall {
+    0% { 
+        opacity: 0;
+        transform: translateX(-100px) translateY(-100px);
+    }
+    10%, 25% { 
+        opacity: 1;
+    }
+    40% { 
+        opacity: 0;
+        transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px));
+    }
+    100% { 
+        opacity: 0;
+    }
+}
+
+.balloon {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    width: 180px;
+    height: 220px;
+    background: url('airballoon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 2.5s cubic-bezier(0.25, 0.1, 0.25, 1), scale 2s ease-out;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+    z-index: 10;
+    animation: gentle-sway 3s ease-in-out infinite alternate;
+}
+
+.balloon.flying {
+    transition: transform 3s cubic-bezier(0.175, 0.885, 0.32, 1.275), scale 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.balloon.high-flying {
+}
+
+/* Удаляем анимацию, которая конфликтует с JS-трансформациями */
+/* @keyframes high-flying-balloon {
+    0% { 
+        transform: translateY(-100px) rotate(-1deg); 
+    }
+    25% { 
+        transform: translateY(-130px) rotate(1deg); 
+    }
+    50% { 
+        transform: translateY(-150px) rotate(2deg); 
+    }
+    75% { 
+        transform: translateY(-130px) rotate(-2deg); 
+    }
+    100% { 
+        transform: translateY(-100px) rotate(-1deg); 
+    }
+} */
+
+/* Добавляем легкое покачивание через отдельную анимацию, которая не влияет на позицию Y */
+.balloon.flying, .balloon.high-flying {
+    animation: gentle-sway 6s infinite ease-in-out;
+}
+
+@keyframes gentle-sway {
+    0% {
+        transform: translate(-50%, var(--lift-height, -70%)) rotate(-0.3deg);
+    }
+    100% {
+        transform: translate(-50%, var(--lift-height, -70%)) rotate(0.3deg);
+    }
+}
+
+.balloon:after {
+    display: none;
+}
+
+/* Свечение вокруг шара */
+.balloon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    animation: glow-pulse 4s infinite alternate;
+    z-index: -1;
+}
+
+@keyframes glow-pulse {
+    0% { opacity: 0.3; transform: scale(1.2); }
+    100% { opacity: 0.7; transform: scale(1.5); }
+}
+
+.controls {
+    position: fixed;
+    bottom: 80px;
+    display: flex;
+    justify-content: center;
+    z-index: 3;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+button, .button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: linear-gradient(to bottom, #6a3093, #a044ff);
+    color: white;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(160, 68, 255, 0.5);
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+/* Стиль для кнопки Get Signal - делаем её больше */
+#predictButton {
+    padding: 18px 35px;
+    font-size: 20px;
+    width: 240px;
+    background: linear-gradient(to bottom, #8a3093, #c044ff);
+    box-shadow: 0 5px 20px rgba(160, 68, 255, 0.6);
+}
+
+#predictButton:hover {
+    background: linear-gradient(to bottom, #9a40a3, #d054ff);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(160, 68, 255, 0.8);
+}
+
+button:hover, .button:hover {
+    background: linear-gradient(to bottom, #7a40a3, #b054ff);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(160, 68, 255, 0.7);
+}
+
+button:active, .button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(160, 68, 255, 0.5);
+}
+
+button:disabled, .button.disabled {
+    background: linear-gradient(to bottom, #666, #999);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Стили для кнопки Back - делаем её меньше */
+#backButton {
+    background: linear-gradient(to bottom, #3a6073, #3a7bd5);
+    box-shadow: 0 4px 15px rgba(58, 123, 213, 0.5);
+    padding: 12px 25px;
+    font-size: 16px;
+    width: 180px;
+}
+
+#backButton:hover {
+    background: linear-gradient(to bottom, #4a7083, #4a8be5);
+    box-shadow: 0 6px 20px rgba(58, 123, 213, 0.7);
+}
+
+/* Стили для кнопки Telegram - делаем её меньше */
+#telegramButton {
+    background: linear-gradient(to bottom, #0088cc, #00aaff);
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 25px;
+    font-size: 16px;
+    width: 180px;
+}
+
+#telegramButton:hover {
+    background: linear-gradient(to bottom, #0099dd, #00bbff);
+    box-shadow: 0 6px 20px rgba(0, 136, 204, 0.7);
+}
+
+.tg-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* Добавляем анимацию для фона при полете */
+.game-container.flying .space-elements,
+.game-container.flying .nebula,
+.game-container.flying .saturn,
+.game-container.flying .star {
+    transform: translateY(var(--background-shift, 10vh));
+    transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Отдельная анимация для звезд, чтобы не конфликтовать с stars-drift */
+.game-container.flying .stars {
+    animation: stars-drift-flying 120s infinite linear;
+    transition: none;
+}
+
+@keyframes stars-drift-flying {
+    0% { transform: translateY(var(--background-shift, 10vh)) rotate(0deg); }
+    100% { transform: translateY(calc(var(--background-shift, 10vh) - 50%)) rotate(5deg); }
+}
+
+.game-container.high-flying .space-elements,
+.game-container.high-flying .nebula,
+.game-container.high-flying .saturn,
+.game-container.high-flying .star {
+    transform: translateY(var(--background-shift-high, 30vh));
+    transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Отдельная анимация для звезд при высоком полете */
+.game-container.high-flying .stars {
+    animation: stars-drift-high-flying 120s infinite linear;
+    transition: none;
+}
+
+@keyframes stars-drift-high-flying {
+    0% { transform: translateY(var(--background-shift-high, 30vh)) rotate(0deg); }
+    100% { transform: translateY(calc(var(--background-shift-high, 30vh) - 50%)) rotate(5deg); }
+}
+
+/* Обновляем анимации мерцания звезд, чтобы они работали вместе с трансформацией */
+@keyframes twinkle-small {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.3); }
+}
+
+@keyframes twinkle-medium {
+    0% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1.5); }
+}
+
+@keyframes twinkle-large {
+    0% { opacity: 0.4; transform: scale(1); }
+    33% { opacity: 0.6; transform: scale(1.3); }
+    66% { opacity: 0.8; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1.6); }
+}
+
+/* Создаем комбинированные анимации для звезд при полете */
+.game-container.flying .star-small {
+    animation: twinkle-small-flying 3s infinite alternate;
+}
+
+.game-container.flying .star-medium {
+    animation: twinkle-medium-flying 4s infinite alternate;
+}
+
+.game-container.flying .star-large {
+    animation: twinkle-large-flying 5s infinite alternate;
+}
+
+.game-container.flying .star-bright {
+    animation: pulse-bright-flying 2s infinite alternate;
+}
+
+.game-container.flying .star-colored {
+    animation: color-shift-flying 8s infinite alternate;
+}
+
+/* Анимации для звезд при полете */
+@keyframes twinkle-small-flying {
+    0% { opacity: 0.3; transform: translateY(var(--background-shift, 10vh)) scale(1); }
+    100% { opacity: 0.8; transform: translateY(var(--background-shift, 10vh)) scale(1.3); }
+}
+
+@keyframes twinkle-medium-flying {
+    0% { opacity: 0.2; transform: translateY(var(--background-shift, 10vh)) scale(1); }
+    50% { opacity: 0.5; transform: translateY(var(--background-shift, 10vh)) scale(1.2); }
+    100% { opacity: 1; transform: translateY(var(--background-shift, 10vh)) scale(1.5); }
+}
+
+@keyframes twinkle-large-flying {
+    0% { opacity: 0.4; transform: translateY(var(--background-shift, 10vh)) scale(1); }
+    33% { opacity: 0.6; transform: translateY(var(--background-shift, 10vh)) scale(1.3); }
+    66% { opacity: 0.8; transform: translateY(var(--background-shift, 10vh)) scale(1.1); }
+    100% { opacity: 1; transform: translateY(var(--background-shift, 10vh)) scale(1.6); }
+}
+
+@keyframes pulse-bright-flying {
+    0% { box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5); transform: translateY(var(--background-shift, 10vh)); }
+    100% { box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.9); transform: translateY(var(--background-shift, 10vh)); }
+}
+
+@keyframes color-shift-flying {
+    0% { background: #ff8a8a; transform: translateY(var(--background-shift, 10vh)); }
+    25% { background: #8a9eff; transform: translateY(var(--background-shift, 10vh)); }
+    50% { background: #8affb9; transform: translateY(var(--background-shift, 10vh)); }
+    75% { background: #ffde8a; transform: translateY(var(--background-shift, 10vh)); }
+    100% { background: #d68aff; transform: translateY(var(--background-shift, 10vh)); }
+}
+
+/* Анимации для звезд при высоком полете */
+.game-container.high-flying .star-small {
+    animation: twinkle-small-high-flying 3s infinite alternate;
+}
+
+.game-container.high-flying .star-medium {
+    animation: twinkle-medium-high-flying 4s infinite alternate;
+}
+
+.game-container.high-flying .star-large {
+    animation: twinkle-large-high-flying 5s infinite alternate;
+}
+
+.game-container.high-flying .star-bright {
+    animation: pulse-bright-high-flying 2s infinite alternate;
+}
+
+.game-container.high-flying .star-colored {
+    animation: color-shift-high-flying 8s infinite alternate;
+}
+
+@keyframes twinkle-small-high-flying {
+    0% { opacity: 0.3; transform: translateY(var(--background-shift-high, 30vh)) scale(1); }
+    100% { opacity: 0.8; transform: translateY(var(--background-shift-high, 30vh)) scale(1.3); }
+}
+
+@keyframes twinkle-medium-high-flying {
+    0% { opacity: 0.2; transform: translateY(var(--background-shift-high, 30vh)) scale(1); }
+    50% { opacity: 0.5; transform: translateY(var(--background-shift-high, 30vh)) scale(1.2); }
+    100% { opacity: 1; transform: translateY(var(--background-shift-high, 30vh)) scale(1.5); }
+}
+
+@keyframes twinkle-large-high-flying {
+    0% { opacity: 0.4; transform: translateY(var(--background-shift-high, 30vh)) scale(1); }
+    33% { opacity: 0.6; transform: translateY(var(--background-shift-high, 30vh)) scale(1.3); }
+    66% { opacity: 0.8; transform: translateY(var(--background-shift-high, 30vh)) scale(1.1); }
+    100% { opacity: 1; transform: translateY(var(--background-shift-high, 30vh)) scale(1.6); }
+}
+
+@keyframes pulse-bright-high-flying {
+    0% { box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.5); transform: translateY(var(--background-shift-high, 30vh)); }
+    100% { box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.9); transform: translateY(var(--background-shift-high, 30vh)); }
+}
+
+@keyframes color-shift-high-flying {
+    0% { background: #ff8a8a; transform: translateY(var(--background-shift-high, 30vh)); }
+    25% { background: #8a9eff; transform: translateY(var(--background-shift-high, 30vh)); }
+    50% { background: #8affb9; transform: translateY(var(--background-shift-high, 30vh)); }
+    75% { background: #ffde8a; transform: translateY(var(--background-shift-high, 30vh)); }
+    100% { background: #d68aff; transform: translateY(var(--background-shift-high, 30vh)); }
+}
+
+/* Стили для заголовка */
+.header {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 38px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(160, 68, 255, 0.5);
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #ff6b6b, #ff8e53);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: glow 3s infinite alternate;
+    transition: transform 3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 107, 107, 0.5); }
+    100% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 142, 83, 0.8); }
+}
+
+/* Анимация заголовка при полете */
+.game-container.flying .header h1 {
+    transform: translateY(var(--background-shift, 10vh) * 0.3);
+}
+
+.game-container.high-flying .header h1 {
+    transform: translateY(var(--background-shift-high, 30vh) * 0.3);
+} 
