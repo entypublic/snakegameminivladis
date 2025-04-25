@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" style="background: 0px 0px;">
+  <defs>
+    <linearGradient id="Gradient-0_cr_i" x1="36.273" y1="22.811" x2="36.273" y2="42.259" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#708fbe" stop-opacity="0"></stop>
+      <stop offset="1" stop-color="#72ddff" stop-opacity="0.63"></stop>
+    </linearGradient>
+    <linearGradient id="Gradient-1_cr_i" x1="37.616" y1="25.294" x2="38.093" y2="46.992" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#708fbe" stop-opacity="0"></stop>
+      <stop offset="1" stop-color="#72ddff" stop-opacity="0.63"></stop>
+    </linearGradient>
+    <linearGradient id="Gradient-3_cr_i" x1="40.728" y1="38.449" x2="18.636" y2="19.326" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d8f6ff" stop-opacity="0.63"></stop>
+      <stop offset="0.219" stop-color="#a0d2ff" stop-opacity="0"></stop>
+      <stop offset="0.491" stop-color="#8dc8ff" stop-opacity="0.56"></stop>
+      <stop offset="0.733" stop-color="#9adbf8"></stop>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+      <stop offset="1" stop-color="#baeaff" stop-opacity="0"></stop>
+    </linearGradient>
+    <linearGradient id="Gradient-4_cr_i" x1="14.418" y1="36.947" x2="17.329" y2="39.593" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c4c4c4" stop-opacity="0"></stop>
+      <stop offset="0.732" stop-color="#dbf6ff" stop-opacity="0.46"></stop>
+    </linearGradient>
+    <linearGradient id="Gradient-5_cr_i" x1="19.496" y1="20.081" x2="16.218" y2="17.456" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c4c4c4" stop-opacity="0"></stop>
+      <stop offset="1" stop-color="#dbf6ff" stop-opacity="0.45"></stop>
+    </linearGradient>
+    <linearGradient id="Gradient-6_cr_i" x1="40.013" y1="20.668" x2="36.906" y2="18.258" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c4c4c4" stop-opacity="0"></stop>
+      <stop offset="1" stop-color="#dbf6ff" stop-opacity="0.45"></stop>
+    </linearGradient>
+    <linearGradient id="Gradient-7_cr_i" x1="28.827" y1="29.033" x2="36.075" y2="28.323" gradientUnits="userSpaceOnUse">
+      <stop offset="0.224" stop-color="#dbf6ff" stop-opacity="0.35"></stop>
+      <stop offset="1" stop-color="#c4c4c4" stop-opacity="0"></stop>
+    </linearGradient>
+    <linearGradient id="Gradient-8_cr_i" x1="37.08" y1="34.836" x2="12.044" y2="13.755" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d8f6ff" stop-opacity="0.63"></stop>
+      <stop offset="0.219" stop-color="#a0d2ff" stop-opacity="0"></stop>
+      <stop offset="0.491" stop-color="#8dc8ff" stop-opacity="0.56"></stop>
+      <stop offset="0.733" stop-color="#9adbf8"></stop>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+      <stop offset="1" stop-color="#baeaff" stop-opacity="0"></stop>
+    </linearGradient>
+    <linearGradient id="Gradient-9_cr_i" x1="0" y1="-2.48" x2="-0.638" y2="1.785" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#94d9f6"></stop>
+      <stop offset="1" stop-color="#94d9f6" stop-opacity="0"></stop>
+    </linearGradient>
+    <radialGradient id="Gradient-2_cr_i" cx="0" cy="0" r="1" fx="0" fy="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(15.5197 21.2962 -21.0221 15.3199 22.682 24.327)">
+      <stop offset="0.739" stop-color="#9cb6dd" stop-opacity="0"></stop>
+      <stop offset="0.898" stop-color="#c6f1ff" stop-opacity="0.37"></stop>
+      <stop offset="1" stop-color="#effbff" stop-opacity="0.7"></stop>
+    </radialGradient>
+  </defs>
+  <style>
+    @keyframes a0_t_cr_i {
+      0% { transform: translate(28px, 28px) rotate(180deg); animation-timing-function: cubic-bezier(0, 0, .58, 1); }
+      71.4285% { transform: translate(28px, 28px) rotate(-5deg); }
+      to { transform: translate(28px, 28px) rotate(0deg); }
+    }
+    @keyframes krest_t_cr_i {
+      0% { transform: scale(0, 0) translate(-28px, -28px); }
+      42.8571%, to { transform: scale(1, 1) translate(-28px, -28px); }
+      71.4285% { transform: scale(1.15, 1.15) translate(-28px, -28px); animation-timing-function: cubic-bezier(0, 0, .58, 1); }
+    }
+    @keyframes a1_t_cr_i {
+      0% { transform: translate(17.3511px, 39px) rotate(0deg) scale(.438128, .423532) translate(-14.3863px, -37.0446px); }
+      to { transform: translate(14.3863px, 37.0446px) rotate(0deg) scale(1, 1) translate(-14.3863px, -37.0446px); }
+    }
+    @keyframes a2_t_cr_i {
+      0% { transform: translate(15.8726px, 16.8036px) rotate(0deg) scale(.440469, .440469) translate(-19.2722px, -19.7496px); }
+      to { transform: translate(19.2722px, 19.7496px) rotate(0deg) scale(1, 1) translate(-19.2722px, -19.7496px); }
+    }
+    @keyframes a3_t_cr_i {
+      0% { transform: translate(37px, 18.2131px) rotate(0deg) scale(.461347, .461347) translate(-40.0446px, -20.5702px); }
+      to { transform: translate(40.0446px, 20.5702px) rotate(0deg) scale(1, 1) translate(-40.0446px, -20.5702px); }
+    }
+    @keyframes a4_t_cr_i {
+      0% { transform: translate(29.3877px, 32.5041px) rotate(-45.565409deg) scale(.403058, .403058) translate(-31.3472px, -29.0394px); }
+      to { transform: translate(31.3472px, 29.0394px) rotate(0deg) scale(1, 1) translate(-31.3472px, -29.0394px); }
+    }
+    @keyframes a5_t_cr_i {
+      0% { transform: translate(27.9335px, 28.2933px) rotate(0deg) scale(1.122601, 1.122601) translate(-27.9335px, -28.2933px); }
+      28.5714% { transform: translate(27.9335px, 28.2933px) rotate(-4.682578deg) scale(1.087572, 1.087572) translate(-27.9335px, -28.2933px); }
+      71.4285% { transform: translate(27.9335px, 28.2933px) rotate(0deg) scale(1.035029, 1.035029) translate(-27.9335px, -28.2933px); }
+      to { transform: translate(27.9335px, 28.2933px) rotate(0deg) scale(1, 1) translate(-27.9335px, -28.2933px); }
+    }
+  </style>
+  <g style="animation: 0.7s linear 0s 1 normal both running a0_t_cr_i;">
+    <g transform="matrix(0 0 0 0 28 28)" id="krest" style="animation: 0.7s linear 0s 1 normal both running krest_t_cr_i;">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M43.408 10.226a2.385 2.385 0 0 0-3.373 0L29.388 20.872a2.237 2.237 0 0 1-3.163 0L15.578 10.226a2.385 2.385 0 0 0-3.373 0l-2.53 2.53a2.385 2.385 0 0 0 0 3.373L20.32 26.776c.874.873.874 2.29 0 3.163L9.675 40.585a2.385 2.385 0 0 0 0 3.374l2.53 2.53a2.385 2.385 0 0 0 3.373 0l10.647-10.647a2.236 2.236 0 0 1 3.163 0l10.646 10.647a2.385 2.385 0 0 0 3.374 0l2.53-2.53a2.385 2.385 0 0 0 0-3.374L35.29 29.94a2.237 2.237 0 0 1 0-3.163l10.647-10.647a2.385 2.385 0 0 0 0-3.373l-2.53-2.53Z" fill="#43628F"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M43.408 10.226a2.385 2.385 0 0 0-3.373 0L29.388 20.872a2.237 2.237 0 0 1-3.163 0L15.578 10.226a2.385 2.385 0 0 0-3.373 0l-2.53 2.53a2.385 2.385 0 0 0 0 3.373L20.32 26.776c.874.873.874 2.29 0 3.163L9.675 40.585a2.385 2.385 0 0 0 0 3.374l2.53 2.53a2.385 2.385 0 0 0 3.373 0l10.647-10.647a2.236 2.236 0 0 1 3.163 0l10.646 10.647a2.385 2.385 0 0 0 3.374 0l2.53-2.53a2.385 2.385 0 0 0 0-3.374L35.29 29.94a2.237 2.237 0 0 1 0-3.163l10.647-10.647a2.385 2.385 0 0 0 0-3.373l-2.53-2.53Z" fill="url(#Gradient-0_cr_i)"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M43.408 10.226a2.385 2.385 0 0 0-3.373 0L27.806 22.454 15.578 10.226a2.385 2.385 0 0 0-3.373 0l-2.53 2.53a2.385 2.385 0 0 0 0 3.373l12.228 12.228L9.675 40.585a2.385 2.385 0 0 0 0 3.374l2.53 2.53a2.385 2.385 0 0 0 3.373 0L27.806 34.26 40.035 46.49a2.385 2.385 0 0 0 3.373 0l2.53-2.53a2.385 2.385 0 0 0 0-3.374L33.709 28.357 45.938 16.13a2.385 2.385 0 0 0 0-3.373l-2.53-2.53Z" fill="url(#Gradient-1_cr_i)"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M43.408 10.226a2.385 2.385 0 0 0-3.373 0L27.806 22.454 15.578 10.226a2.385 2.385 0 0 0-3.373 0l-2.53 2.53a2.385 2.385 0 0 0 0 3.373l12.228 12.228L9.675 40.585a2.385 2.385 0 0 0 0 3.374l2.53 2.53a2.385 2.385 0 0 0 3.373 0L27.806 34.26 40.035 46.49a2.385 2.385 0 0 0 3.373 0l2.53-2.53a2.385 2.385 0 0 0 0-3.374L33.71 28.357l12.228-12.228a2.385 2.385 0 0 0 0-3.373l-2.53-2.53Z" fill="url(#Gradient-2_cr_i)"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M39.36 9.551a3.34 3.34 0 0 1 4.723 0l2.53 2.53a3.34 3.34 0 0 1 0 4.723L35.227 28.188a.239.239 0 0 0 0 .338L46.613 39.91a3.34 3.34 0 0 1 0 4.722l-2.53 2.53a3.34 3.34 0 0 1-4.723 0L27.975 35.778a.239.239 0 0 0-.337 0L16.253 47.163a3.34 3.34 0 0 1-4.723 0L9 44.633a3.34 3.34 0 0 1 0-4.722l11.385-11.385a.239.239 0 0 0 0-.338L9 16.804a3.34 3.34 0 0 1 0-4.723l2.53-2.53a3.34 3.34 0 0 1 4.723 0l11.385 11.385a.239.239 0 0 0 .337 0L39.36 9.55Zm.675.675a2.385 2.385 0 0 1 3.373 0l2.53 2.53a2.385 2.385 0 0 1 0 3.373L34.553 27.514a1.193 1.193 0 0 0 0 1.686l11.385 11.385a2.385 2.385 0 0 1 0 3.374l-2.53 2.53a2.385 2.385 0 0 1-3.373 0L28.65 35.104a1.193 1.193 0 0 0-1.687 0L15.578 46.489a2.385 2.385 0 0 1-3.373 0l-2.53-2.53a2.385 2.385 0 0 1 0-3.374L21.06 29.2a1.193 1.193 0 0 0 0-1.686L9.675 16.129a2.385 2.385 0 0 1 0-3.373l2.53-2.53a2.385 2.385 0 0 1 3.373 0L26.963 21.61c.466.466 1.221.466 1.687 0l11.385-11.384Z" fill="#E2E2E2"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M39.36 9.551a3.34 3.34 0 0 1 4.723 0l2.53 2.53a3.34 3.34 0 0 1 0 4.723L35.227 28.188a.239.239 0 0 0 0 .338L46.613 39.91a3.34 3.34 0 0 1 0 4.722l-2.53 2.53a3.34 3.34 0 0 1-4.723 0L27.975 35.778a.239.239 0 0 0-.337 0L16.253 47.163a3.34 3.34 0 0 1-4.723 0L9 44.633a3.34 3.34 0 0 1 0-4.722l11.385-11.385a.239.239 0 0 0 0-.338L9 16.804a3.34 3.34 0 0 1 0-4.723l2.53-2.53a3.34 3.34 0 0 1 4.723 0l11.385 11.385a.239.239 0 0 0 .337 0L39.36 9.55Zm.675.675a2.385 2.385 0 0 1 3.373 0l2.53 2.53a2.385 2.385 0 0 1 0 3.373L34.553 27.514a1.193 1.193 0 0 0 0 1.686l11.385 11.385a2.385 2.385 0 0 1 0 3.374l-2.53 2.53a2.385 2.385 0 0 1-3.373 0L28.65 35.104a1.193 1.193 0 0 0-1.687 0L15.578 46.489a2.385 2.385 0 0 1-3.373 0l-2.53-2.53a2.385 2.385 0 0 1 0-3.374L21.06 29.2a1.193 1.193 0 0 0 0-1.686L9.675 16.129a2.385 2.385 0 0 1 0-3.373l2.53-2.53a2.385 2.385 0 0 1 3.373 0L26.963 21.61c.466.466 1.221.466 1.687 0l11.385-11.384Z" fill="url(#Gradient-3_cr_i)"></path>
+      <path d="M19.263 32.051c.336 8.28-5.096 10.683-7.854 10.85-5.237-.655 1.651-3.229 4.258-8.555 2.086-4.261 3.267-3.305 3.596-2.295Z" fill="url(#Gradient-4_cr_i)" transform="matrix(.43813 0 0 .42353 11.048 23.31)" style="animation: 0.7s linear 0s 1 normal both running a1_t_cr_i;"></path>
+      <path d="M16.417 22.512c-1.922-6.724 2.141-6.982 4.413-6.27 4.507 2.126-.74 2.076-1.863 5.536-.898 2.769-2.074 1.643-2.55.734Z" fill="url(#Gradient-5_cr_i)" fill-opacity="0.6" transform="matrix(.44047 0 0 .44047 7.384 8.105)" style="animation: 0.7s linear 0s 1 normal both running a2_t_cr_i;"></path>
+      <path d="M35.168 25.564c-.336-8.281 5.096-10.684 7.854-10.85 5.237.654-1.651 3.229-4.258 8.555-2.086 4.26-3.267 3.305-3.596 2.295Z" fill="url(#Gradient-6_cr_i)" fill-opacity="0.6" transform="matrix(.46135 0 0 .46135 18.526 8.723)" style="animation: 0.7s linear 0s 1 normal both running a3_t_cr_i;"></path>
+      <path d="M27.007 29.814c1.866 7.643 5.57 8.719 7.188 8.301 4.173-1.915.778-14.985-1.107-17.311-1.885-2.326-8.414-.543-6.081 9.01Z" fill="url(#Gradient-7_cr_i)" fill-opacity="0.6" transform="rotate(-45.566 45.772 2.16) scale(.40306)" style="animation: 0.7s linear 0s 1 normal both running a4_t_cr_i;"></path>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.948 13.266a.894.894 0 0 1 1.265.002l9.498 9.524a5.963 5.963 0 0 0 8.445 0l9.498-9.524a.894.894 0 1 1 1.267 1.263l-9.525 9.552a5.963 5.963 0 0 0 0 8.421l9.525 9.552a.894.894 0 1 1-1.267 1.263l-9.498-9.525a5.963 5.963 0 0 0-8.445 0l-9.498 9.525a.895.895 0 0 1-1.267-1.263l9.525-9.552a5.963 5.963 0 0 0 0-8.421l-9.525-9.552a.894.894 0 0 1 .002-1.265Z" fill="url(#Gradient-8_cr_i)" transform="translate(-3.425 -3.469) scale(1.1226)" style="animation: 0.7s linear 0s 1 normal both running a5_t_cr_i;"></path>
+      <circle fill="#94D9F6" transform="translate(26.508 27.06)" r="0.54"></circle>
+      <circle opacity="0.2" fill="url(#Gradient-9_cr_i)" transform="translate(26.509 27.06)" r="2.48"></circle>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.052 16.59a.54.54 0 0 1 .764.022l2.322 2.46a.54.54 0 0 1-.785.742l-2.323-2.46a.54.54 0 0 1 .022-.764Z" fill="#94D9F6"></path>
+      <circle fill="#94D9F6" transform="rotate(-70.181 22.464 -.895)" r="0.54"></circle>
+    </g>
+  </g>
+</svg>

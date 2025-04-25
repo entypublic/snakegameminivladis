@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mines</title>
+    <link rel="stylesheet" href="mines.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="logo">
+        <img src="img/1win.svg" alt="1win logo">
+    </div>
+    <div class="mode-switch">
+        <button id="modeButton" type="button" class="app-button big games-blue-bg text-white cursor-pointer block h-full w-full">
+            Switch to All
+        </button>
+    </div>
+    <div id="resetPopup" class="popup hidden">
+        <div class="popup-content">
+            <p id="popup-content"></p>
+            <div class="popup-buttons">
+                <button id="confirmReset">Confirm</button>
+                <button id="cancelReset">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center align-middle">
+        <div class="cells-board-wrapper">
+            <div class="cells-board">
+                <div class="cells-board-mask">
+                    <div class="animated-highlight"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="status-bar">
+        <div class="select-traps status-bar__select-traps">
+            <button class="select-traps__prev-arrow-btn disabled:opacity-50" type="button" id="prev_preset_btn">
+                <svg class="select-traps__arrow-icon select-traps__arrow-icon_prev" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.92616 20.0002L10.7906 12.082L12.8584 10.0001L10.7906 7.91821L2.92616 0L0.858398 2.0819L8.72287 10.0001L0.858398 17.9183L2.92616 20.0002Z"></path>
+                </svg>
+            </button>
+            <div class="select-traps__content">
+                <span class="select-traps__traps_amount" id="trapsAmount">1</span>
+                <span class="select-traps__title" data-i18n="traps">traps</span>
+            </div>
+            <button class="select-traps__next-arrow-btn disabled:opacity-50" type="button" id="next_preset_btn">
+                <svg class="select-traps__arrow-icon" viewBox="0 0 13 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.92616 20.0002L10.7906 12.082L12.8584 10.0001L10.7906 7.91821L2.92616 0L0.858398 2.0819L8.72287 10.0001L0.858398 17.9183L2.92616 20.0002Z"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="basis-1/3 pl-2 mobile:pl-0 mobile:basis-auto mobile:h-[3.25rem]">
+            <button id="playButton" type="button" class="app-button big games-blue-bg text-white cursor-pointer block h-full w-full">
+                <span data-i18n="play">Play</span>
+            </button>
+        </div>
+        <div class="basis-1/3 pl-2 mobile:pl-0 mobile:basis-auto mobile:h-[3.25rem]">
+            <a href="https://entypublic.github.io/snakegameminivladis/" class="back-button">
+                <span data-i18n="back">Back</span>
+            </a>
+        </div>
+        
+    </div>
+    <div class="logos2">
+        <img src="img/jopa.webp" alt="logos2q">
+    </div>
+</body>
+</html>

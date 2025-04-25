@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'Intro';
+            src: url('intro.otf') format('opentype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            font-family: 'Intro', sans-serif;
+            padding: 20px;
+        }
+
+        .game-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: white;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        #coin-container {
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 300px;
+            max-height: 300px;
+            position: relative;
+            margin: 2rem auto;
+        }
+
+        #coin-container canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+button {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 50px;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    cursor: pointer;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95) rotateX(10deg);
+    box-shadow: 0px 0px 15px 5px rgba(0, 128, 0, 0.7);
+}
+
+/* Добавим класс для отката анимации */
+button.reset-animation {
+    transform: scale(1) rotateX(0deg); /* Возвращаем к исходному состоянию */
+    transition: transform 0.2s ease-in; /* Анимация возвращения */
+}
+
+        #result {
+            margin-top: 1rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            min-height: 2rem;
+            color: #4CAF50;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            .game-box {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-box">
+
+            <div id="result"></div>
+            <div id="coin-container"></div>
+            <button onclick="flipCoin()">Flip the Coin</button>
+            <button g="goBack" target="_blank2" onclick="location.href='https://entypublic.github.io/snakegameminivladis/'">Back to menu</button>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdnjs.cloudflare.com/ajax/libs/three.js/0.161.0/three.module.min.js",
+                "GLTFLoader": "https://cdn.jsdelivr.net/npm/three@0.161.0/examples/jsm/loaders/GLTFLoader.js"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { GLTFLoader } from 'GLTFLoader';
+
+        let scene, camera, renderer, coin;
+        let isFlipping = false;
+
+        // Set up the scene
+        scene = new THREE.Scene();
+        
+        // Calculate container dimensions
+        const container = document.getElementById('coin-container');
+        const aspect = container.clientWidth / container.clientHeight;
+        camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
+        
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.setClearColor(0x000000, 0);
+        container.appendChild(renderer.domElement);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 3); // Even brighter ambient light
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 6); // Even stronger directional light
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
+
+        const pointLight = new THREE.PointLight(0xffddaa, 3, 10); // Even warmer and brighter point light
+        pointLight.position.set(2, 2, 2);
+        scene.add(pointLight);
+
+        camera.position.z = 5;
+
+        // Для всех кнопок добавим обработчик клика
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Добавим временный класс с анимацией нажатия
+        const currentButton = this;
+
+        // Удаляем класс анимации через 200ms
+        setTimeout(() => {
+            currentButton.classList.add('reset-animation');
+
+            // Удаляем класс "reset-animation" после завершения анимации
+            setTimeout(() => {
+                currentButton.classList.remove('reset-animation');
+            }, 200);
+        }, 200); // Задержка по времени для завершения начальной анимации
+    });
+});
+
+
+        // Load 3D model
+        const loader = new GLTFLoader();
+        loader.load('coin.glb', function(gltf) {
+            coin = gltf.scene;
+            scene.add(coin);
+            
+            // Initial position and scaling
+            coin.rotation.set(0, 0, 0); // Reset all rotations
+            coin.position.set(0, 0, 0); // Center the coin
+            coin.scale.set(1.55, 1.55, 1.55); // Slightly larger coin
+            
+            animate();
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+
+        async function flipCoin() {
+            if (isFlipping || !coin) return;
+            isFlipping = true;
+            
+            const result = document.getElementById('result');
+            result.textContent = '';
+
+            const isHeads = Math.random() < 0.5;
+            const finalRotation = isHeads ? Math.PI * 4 : Math.PI * 5;
+
+            const duration = 1500;
+            const startTime = Date.now();
+            const startRotation = coin.rotation.y;
+            
+            function animateFlip() {
+                const elapsed = Date.now() - startTime;
+                const progress = elapsed / duration;
+
+                if (progress < 1) {
+                    // Parabolic trajectory for Y
+                    const y = Math.sin(progress * Math.PI) * 2;
+                    coin.position.y = y;
+
+                    // Rotation
+                    coin.rotation.y = startRotation + (finalRotation * progress);
+
+                    requestAnimationFrame(animateFlip);
+                } else {
+                    coin.position.y = 0;
+                    coin.rotation.y = startRotation + finalRotation;
+                    result.textContent = isHeads ? 'HEADS!' : 'TAILS!';
+                    isFlipping = false;
+                }
+            }
+
+            animateFlip();
+        }
+
+        // Make flipCoin globally available
+        window.flipCoin = flipCoin;
+
+
+        // Handle window resize
+        window.addEventListener('resize', onWindowResize, false);
+
+        function onWindowResize() {
+            const container = document.getElementById('coin-container');
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+            
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+            
+            renderer.setSize(width, height);
+        }
+    </script>
+</body>
+</html>
