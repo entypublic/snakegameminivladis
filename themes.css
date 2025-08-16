@@ -1,0 +1,372 @@
+/* ========== СИСТЕМА ТЕМ ========== */
+
+/* Переменные для темной темы (по умолчанию) */
+:root {
+    --primary-bg: #0a0a0a;
+    --secondary-bg: rgba(20, 20, 20, 0.95);
+    --accent-bg: rgba(40, 40, 40, 0.8);
+    --glass-bg: rgba(0, 0, 0, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-accent: #4A90E2;
+    --border-glow: rgba(74, 144, 226, 0.3);
+    --shadow-primary: rgba(0, 0, 0, 0.5);
+    --shadow-glow: rgba(74, 144, 226, 0.2);
+    --gradient-primary: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    --gradient-accent: linear-gradient(45deg, #4A90E2, #64B5F6);
+    --backdrop-blur: blur(20px);
+    
+    /* Переменные для игр и контента */
+    --game-bg: rgba(20, 20, 20, 0.9);
+    --game-border: rgba(255, 255, 255, 0.1);
+    --game-hover-bg: rgba(40, 40, 40, 0.9);
+    --tab-bg: rgba(51, 51, 51, 0.8);
+    --content-bg: var(--primary-bg);
+    
+    /* Переменные для preview тем */
+    --theme-preview-bg: rgba(20, 20, 20, 0.8);
+    --theme-preview-gradient: linear-gradient(45deg, #4A90E2, #64B5F6);
+    --accent-color: #4A90E2;
+    --border-glass: rgba(255, 255, 255, 0.1);
+}
+
+/* Синяя тема */
+[data-theme="blue"] {
+    --primary-bg: #0d1421;
+    --secondary-bg: rgba(13, 20, 33, 0.95);
+    --accent-bg: rgba(25, 39, 60, 0.8);
+    --glass-bg: rgba(13, 20, 33, 0.8);
+    --glass-border: rgba(100, 181, 246, 0.2);
+    --text-primary: #e3f2fd;
+    --text-secondary: rgba(227, 242, 253, 0.7);
+    --text-accent: #64B5F6;
+    --border-glow: rgba(100, 181, 246, 0.4);
+    --shadow-primary: rgba(13, 20, 33, 0.6);
+    --shadow-glow: rgba(100, 181, 246, 0.3);
+    --gradient-primary: linear-gradient(135deg, #0d1421, #1a2332);
+    --gradient-accent: linear-gradient(45deg, #2196F3, #64B5F6);
+    
+    --game-bg: rgba(25, 39, 60, 0.9);
+    --game-border: rgba(100, 181, 246, 0.2);
+    --game-hover-bg: rgba(35, 49, 70, 0.9);
+    --tab-bg: rgba(25, 39, 60, 0.8);
+    --content-bg: var(--primary-bg);
+    
+    --theme-preview-bg: rgba(25, 39, 60, 0.8);
+    --theme-preview-gradient: linear-gradient(45deg, #2196F3, #64B5F6);
+    --accent-color: #64B5F6;
+    --border-glass: rgba(100, 181, 246, 0.2);
+}
+
+/* Фиолетовая тема */
+[data-theme="purple"] {
+    --primary-bg: #1a0d21;
+    --secondary-bg: rgba(26, 13, 33, 0.95);
+    --accent-bg: rgba(50, 25, 60, 0.8);
+    --glass-bg: rgba(26, 13, 33, 0.8);
+    --glass-border: rgba(186, 104, 200, 0.2);
+    --text-primary: #f3e5f5;
+    --text-secondary: rgba(243, 229, 245, 0.7);
+    --text-accent: #BA68C8;
+    --border-glow: rgba(186, 104, 200, 0.4);
+    --shadow-primary: rgba(26, 13, 33, 0.6);
+    --shadow-glow: rgba(186, 104, 200, 0.3);
+    --gradient-primary: linear-gradient(135deg, #1a0d21, #2d1b3d);
+    --gradient-accent: linear-gradient(45deg, #9C27B0, #BA68C8);
+    
+    --game-bg: rgba(50, 25, 60, 0.9);
+    --game-border: rgba(186, 104, 200, 0.2);
+    --game-hover-bg: rgba(60, 35, 70, 0.9);
+    --tab-bg: rgba(50, 25, 60, 0.8);
+    --content-bg: var(--primary-bg);
+    
+    --theme-preview-bg: rgba(50, 25, 60, 0.8);
+    --theme-preview-gradient: linear-gradient(45deg, #9C27B0, #BA68C8);
+    --accent-color: #BA68C8;
+    --border-glass: rgba(186, 104, 200, 0.2);
+}
+
+/* Зеленая тема */
+[data-theme="green"] {
+    --primary-bg: #0d2115;
+    --secondary-bg: rgba(13, 33, 21, 0.95);
+    --accent-bg: rgba(25, 60, 35, 0.8);
+    --glass-bg: rgba(13, 33, 21, 0.8);
+    --glass-border: rgba(129, 199, 132, 0.2);
+    --text-primary: #e8f5e8;
+    --text-secondary: rgba(232, 245, 232, 0.7);
+    --text-accent: #81C784;
+    --border-glow: rgba(129, 199, 132, 0.4);
+    --shadow-primary: rgba(13, 33, 21, 0.6);
+    --shadow-glow: rgba(129, 199, 132, 0.3);
+    --gradient-primary: linear-gradient(135deg, #0d2115, #1b3329);
+    --gradient-accent: linear-gradient(45deg, #4CAF50, #81C784);
+    
+    --game-bg: rgba(25, 60, 35, 0.9);
+    --game-border: rgba(129, 199, 132, 0.2);
+    --game-hover-bg: rgba(35, 70, 45, 0.9);
+    --tab-bg: rgba(25, 60, 35, 0.8);
+    --content-bg: var(--primary-bg);
+    
+    --theme-preview-bg: rgba(25, 60, 35, 0.8);
+    --theme-preview-gradient: linear-gradient(45deg, #4CAF50, #81C784);
+    --accent-color: #81C784;
+    --border-glass: rgba(129, 199, 132, 0.2);
+}
+
+/* Красная тема */
+[data-theme="red"] {
+    --primary-bg: #210d0d;
+    --secondary-bg: rgba(33, 13, 13, 0.95);
+    --accent-bg: rgba(60, 25, 25, 0.8);
+    --glass-bg: rgba(33, 13, 13, 0.8);
+    --glass-border: rgba(239, 83, 80, 0.2);
+    --text-primary: #ffebee;
+    --text-secondary: rgba(255, 235, 238, 0.7);
+    --text-accent: #EF5350;
+    --border-glow: rgba(239, 83, 80, 0.4);
+    --shadow-primary: rgba(33, 13, 13, 0.6);
+    --shadow-glow: rgba(239, 83, 80, 0.3);
+    --gradient-primary: linear-gradient(135deg, #210d0d, #3d1b1b);
+    --gradient-accent: linear-gradient(45deg, #F44336, #EF5350);
+    
+    --game-bg: rgba(60, 25, 25, 0.9);
+    --game-border: rgba(239, 83, 80, 0.2);
+    --game-hover-bg: rgba(70, 35, 35, 0.9);
+    --tab-bg: rgba(60, 25, 25, 0.8);
+    --content-bg: var(--primary-bg);
+    
+    --theme-preview-bg: rgba(60, 25, 25, 0.8);
+    --theme-preview-gradient: linear-gradient(45deg, #F44336, #EF5350);
+    --accent-color: #EF5350;
+    --border-glass: rgba(239, 83, 80, 0.2);
+}
+
+/* Золотая тема */
+[data-theme="gold"] {
+    --primary-bg: #1f1b0d;
+    --secondary-bg: rgba(31, 27, 13, 0.95);
+    --accent-bg: rgba(60, 50, 25, 0.8);
+    --glass-bg: rgba(31, 27, 13, 0.8);
+    --glass-border: rgba(255, 193, 7, 0.2);
+    --text-primary: #fffde7;
+    --text-secondary: rgba(255, 253, 231, 0.7);
+    --text-accent: #FFC107;
+    --border-glow: rgba(255, 193, 7, 0.4);
+    --shadow-primary: rgba(31, 27, 13, 0.6);
+    --shadow-glow: rgba(255, 193, 7, 0.3);
+    --gradient-primary: linear-gradient(135deg, #1f1b0d, #3d331b);
+    --gradient-accent: linear-gradient(45deg, #FF9800, #FFC107);
+    
+    --game-bg: rgba(60, 50, 25, 0.9);
+    --game-border: rgba(255, 193, 7, 0.2);
+    --game-hover-bg: rgba(70, 60, 35, 0.9);
+    --tab-bg: rgba(60, 50, 25, 0.8);
+    --content-bg: var(--primary-bg);
+    
+    --theme-preview-bg: rgba(60, 50, 25, 0.8);
+    --theme-preview-gradient: linear-gradient(45deg, #FF9800, #FFC107);
+    --accent-color: #FFC107;
+    --border-glass: rgba(255, 193, 7, 0.2);
+}
+
+/* Переключатель тем */
+.theme-selector {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 25px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+.theme-selector:hover {
+    background: var(--accent-bg);
+    transform: scale(1.02);
+}
+
+.theme-btn {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--glass-border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--shadow-glow);
+}
+
+.theme-btn.active {
+    border-color: var(--text-accent);
+    box-shadow: 0 0 20px var(--border-glow);
+    transform: scale(1.15);
+}
+
+.theme-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.theme-btn.active::after {
+    opacity: 1;
+}
+
+/* Конкретные цвета для кнопок тем */
+.theme-btn[data-theme="dark"] {
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    color: #4A90E2;
+}
+
+.theme-btn[data-theme="blue"] {
+    background: linear-gradient(135deg, #0d1421, #1a2332);
+    color: #64B5F6;
+}
+
+.theme-btn[data-theme="purple"] {
+    background: linear-gradient(135deg, #1a0d21, #2d1b3d);
+    color: #BA68C8;
+}
+
+.theme-btn[data-theme="green"] {
+    background: linear-gradient(135deg, #0d2115, #1b3329);
+    color: #81C784;
+}
+
+.theme-btn[data-theme="red"] {
+    background: linear-gradient(135deg, #210d0d, #3d1b1b);
+    color: #EF5350;
+}
+
+.theme-btn[data-theme="gold"] {
+    background: linear-gradient(135deg, #1f1b0d, #3d331b);
+    color: #FFC107;
+}
+
+/* Глобальные стили с переменными */
+body {
+    background: var(--gradient-primary) !important;
+    color: var(--text-primary) !important;
+    transition: all 0.4s ease;
+}
+
+/* Применяем переменные ко всем основным элементам */
+.tabcontent {
+    background: var(--content-bg) !important;
+}
+
+#Games {
+    background: var(--content-bg) !important;
+}
+
+.game h3 {
+    color: var(--text-primary) !important;
+}
+
+.game {
+    color: var(--text-primary) !important;
+}
+
+/* Переопределяем белые цвета */
+* {
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div {
+    color: inherit !important;
+}
+
+/* Стили для быстрых действий */
+.quick-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-primary);
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: var(--backdrop-blur);
+    position: relative;
+    overflow: hidden;
+}
+
+.action-btn:hover {
+    background: var(--accent-bg);
+    border-color: var(--text-accent);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px var(--shadow-glow);
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
+.action-icon {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-text {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-primary);
+}
+
+/* Специальные стили для кнопок */
+
+.share-btn:hover {
+    background: linear-gradient(135deg, var(--accent-bg), rgba(0, 150, 255, 0.2));
+    border-color: #0096FF;
+    box-shadow: 0 4px 15px rgba(0, 150, 255, 0.3);
+}
+
+/* Анимация пульсации для новых элементов */
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.action-btn:hover::before {
+    transform: translateX(100%);
+}
+
+ 

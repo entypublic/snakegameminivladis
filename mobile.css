@@ -1,0 +1,360 @@
+/* ========== МОБИЛЬНАЯ АДАПТАЦИЯ ========== */
+
+/* Дополнительные стили для сенсорных устройств */
+@media (hover: none) and (pointer: coarse) {
+    .theme-btn:hover {
+        transform: none;
+    }
+    
+    .theme-btn:active {
+        transform: scale(1.1);
+        transition: transform 0.1s ease;
+    }
+    
+    .device-info-mini:hover {
+        transform: none;
+    }
+    
+    .device-info-mini:active {
+        transform: scale(1.02);
+        transition: transform 0.1s ease;
+    }
+    
+    .user-avatar:hover {
+        transform: none;
+    }
+    
+    .user-avatar:active {
+        transform: scale(1.05);
+        transition: transform 0.1s ease;
+    }
+}
+
+/* Оптимизация для очень маленьких экранов */
+@media (max-width: 360px) {
+    body {
+        padding-top: 110px;
+    }
+    
+    .user-profile {
+        padding: 10px;
+    }
+    
+    .profile-info {
+        gap: 8px;
+    }
+    
+    .main-profile-section {
+        gap: 10px;
+    }
+    
+    .profile-controls {
+        gap: 6px;
+        margin-top: 5px;
+    }
+    
+    .user-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .user-name {
+        font-size: 0.9rem;
+    }
+    
+    .user-id {
+        font-size: 0.7rem;
+    }
+    
+    .status-text {
+        font-size: 0.6rem;
+    }
+    
+    .avatar-status {
+        width: 10px;
+        height: 10px;
+        bottom: 1px;
+        right: 1px;
+    }
+    
+    .theme-selector {
+        padding: 3px 6px;
+        gap: 3px;
+    }
+    
+    .theme-btn {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .device-info-mini {
+        padding: 5px 8px;
+        gap: 3px;
+    }
+    
+    .device-text {
+        font-size: 9px;
+    }
+    
+    .device-icon {
+        font-size: 11px;
+    }
+
+    .quick-actions {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .action-btn {
+        padding: 4px 8px;
+        font-size: 11px;
+        min-width: auto;
+    }
+
+    .action-icon {
+        font-size: 12px;
+    }
+
+    .action-text {
+        font-size: 9px;
+    }
+    
+    #Games .game {
+        flex: 0 0 47% !important;
+        max-width: 47% !important;
+        margin: 6px !important;
+        padding: 6px !important;
+    }
+    
+    .game img:not(.secretimg) {
+        max-height: 110px !important;
+    }
+    
+    .game h3 {
+        font-size: 13px !important;
+        margin: 6px 0 !important;
+    }
+    
+    .game button {
+        font-size: 11px !important;
+        padding: 6px 10px !important;
+    }
+}
+
+/* Стили для landscape режима на мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+    body {
+        padding-top: 100px;
+    }
+    
+    .user-profile {
+        padding: 10px 15px;
+    }
+    
+    .profile-info {
+        gap: 8px;
+    }
+    
+    .main-profile-section {
+        gap: 12px;
+    }
+    
+    .profile-controls {
+        flex-direction: row;
+        gap: 15px;
+        margin-top: 5px;
+    }
+    
+    .user-avatar {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .user-name {
+        font-size: 1.1rem;
+    }
+    
+    .user-id {
+        font-size: 0.75rem;
+    }
+    
+    .theme-selector {
+        padding: 5px 8px;
+        gap: 5px;
+    }
+    
+    .theme-btn {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* Улучшения для высоких экранов */
+@media (min-height: 800px) and (max-width: 768px) {
+    body {
+        padding-top: 150px;
+    }
+    
+    .user-profile {
+        padding: 20px;
+    }
+    
+    .profile-info {
+        gap: 15px;
+    }
+    
+    .main-profile-section {
+        gap: 18px;
+    }
+    
+    .user-avatar {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .user-name {
+        font-size: 1.3rem;
+    }
+    
+    .user-id {
+        font-size: 0.85rem;
+    }
+    
+    .theme-selector {
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    
+    .theme-btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .device-info-mini {
+        padding: 10px 15px;
+        gap: 8px;
+    }
+}
+
+/* Оптимизация для iPhone SE и подобных */
+@media (max-width: 375px) and (max-height: 667px) {
+    body {
+        padding-top: 105px;
+    }
+    
+    .user-profile {
+        padding: 8px 12px;
+    }
+    
+    .main-profile-section {
+        gap: 8px;
+    }
+    
+    .profile-controls {
+        gap: 5px;
+        margin-top: 3px;
+    }
+    
+    .user-avatar {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .user-name {
+        font-size: 0.85rem;
+    }
+    
+    .user-id {
+        font-size: 0.65rem;
+    }
+    
+    .theme-btn {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .device-info-mini {
+        padding: 4px 6px;
+        gap: 2px;
+    }
+    
+    .device-text {
+        font-size: 8px;
+    }
+    
+    .device-icon {
+        font-size: 10px;
+    }
+}
+
+/* Дополнительные оптимизации производительности для мобильных */
+@media (max-width: 768px) {
+    * {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    .user-profile {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    
+    .theme-btn,
+    .device-info-mini,
+    .user-avatar {
+        will-change: transform;
+    }
+    
+    /* Отключаем сложные анимации на мобильных для производительности */
+    .theme-btn,
+    .device-info-mini {
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+    
+    /* Исправляем прокрутку для мобильных */
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    .tabcontent {
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 120px !important;
+    }
+    
+    #Games {
+        padding-bottom: 120px !important;
+        min-height: calc(100vh - 200px);
+    }
+    
+    .row {
+        padding-bottom: 140px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Стили для быстрых действий на мобильных */
+    .quick-actions {
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .action-btn {
+        padding: 6px 10px;
+        font-size: 12px;
+        border-radius: 15px;
+    }
+
+    .action-icon {
+        font-size: 14px;
+    }
+
+    .action-text {
+        font-size: 10px;
+    }
+
+
+} 
