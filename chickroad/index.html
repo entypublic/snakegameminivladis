@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Road Signal Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Additional atmospheric elements -->
+    <div class="atmospheric-decor"></div>
+    <div class="atmospheric-decor"></div>
+    <div class="atmospheric-decor"></div>
+    <div class="atmospheric-decor"></div>
+    
+    <div class="game-container">
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="logo.png" alt="Chicken Road" class="logo" onerror="this.style.display='none'">
+        </div>
+        
+        <!-- Game Mode Selector -->
+        <div class="game-mode-selector">
+            <div class="mode-title">Choose Game Mode</div>
+            <div class="mode-buttons">
+                <button class="mode-btn active" data-mode="easy">Easy</button>
+                <button class="mode-btn" data-mode="medium">Medium</button>
+                <button class="mode-btn" data-mode="hard">Hard</button>
+                <button class="mode-btn" data-mode="hardcore">Hardcore</button>
+            </div>
+        </div>
+        
+        <div class="tunnel">
+            <div class="tunnel-decoration"></div>
+            <div class="tunnel-decoration"></div>
+            
+            <!-- Beautiful castle decorations -->
+            <div class="castle-decoration-left"></div>
+            <div class="castle-decoration-right"></div>
+            <div class="castle-decoration-mid-left"></div>
+            <div class="castle-decoration-mid-right"></div>
+            
+            <!-- Mystical glowing points -->
+            <div class="mystical-light-1"></div>
+            <div class="mystical-light-2"></div>
+            <div class="mystical-light-3"></div>
+            <div class="mystical-light-4"></div>
+            <div class="mystical-light-5"></div>
+            
+            <!-- Дополнительные замковые детали -->
+            <div class="castle-chain-left"></div>
+            <div class="castle-chain-right"></div>
+            
+            <!-- Beautiful background behind chicken -->
+            <div class="chicken-background"></div>
+            
+            <!-- Дополнительные каменные арки -->
+            <div class="stone-arch-left"></div>
+            <div class="stone-arch-right"></div>
+            <div class="castle-floor-texture"></div>
+            
+            <div class="chicken" id="chicken">
+                <img src="chick.png" alt="Chicken" id="chicken-img">
+            </div>
+            
+            <!-- Анимация огня -->
+            <div class="fire-animation" id="fireAnimation" style="display: none;">
+                <img src="fire_0.webp" alt="Fire" id="fire-img">
+            </div>
+            
+            <!-- Мертвая курица с множителем -->
+            <div class="dead-chicken-container" id="deadChickenContainer" style="display: none;">
+                <img src="deadchicken.png" alt="Dead Chicken" class="dead-chicken-img">
+                <div class="dead-chicken-multiplier" id="deadChickenMultiplier">2.45x</div>
+            </div>
+        </div>
+        
+        <div class="signal-button-container">
+            <button class="get-signal-btn" id="getSignalBtn">Get Signal</button>
+        </div>
+        
+                 <!-- Back and Telegram Buttons -->
+         <div class="bottom-buttons-container">
+             <button class="back-btn" id="backBtn">
+                 <div class="back-icon">←</div>
+                 <span class="back-text">Back</span>
+             </button>
+             
+             <button class="telegram-btn" onclick="window.open('https://t.me/minesprosignal_bot', '_blank')">
+                 <div class="telegram-icon">
+                     <div class="telegram-logo"></div>
+                 </div>
+                 <span class="telegram-text">@minesprosignal_bot</span>
+             </button>
+         </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotline</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="icon-hot.svg">
+</head>
+<body>
+    <div class="particles-container" id="particles"></div>
+    
+    <div class="container">
+        <h1>Hotline</h1>
+        <div class="roulette-wrapper">
+            <div class="arrow-container arrow-top">
+                <div class="arrow" id="arrowTop"></div>
+            </div>
+            <div class="roulette-container">
+                <div class="glow-effect" id="glowEffect"></div>
+                <div class="roulette-items" id="rouletteItems"></div>
+                <div class="result-frame" id="resultFrame">
+                    <img src="ramka.png" alt="Result Frame">
+                </div>
+                <div class="analysis-overlay" id="analysisOverlay">Analysis</div>
+            </div>
+            <div class="arrow-container arrow-bottom">
+                <div class="arrow" id="arrowBottom"></div>
+            </div>
+        </div>
+        <div class="result" id="result"></div>
+        <div class="button-container">
+            <button class="spin-button" onclick="spin()" id="spinButton">Get Signal</button>
+            <a onclick="history.back()" class="back-button-link">
+                <button class="back-button" id="backButton">Back</button>
+            </a>
+            <a href="https://t.me/minesprosignal_bot" class="dynasty-button-link">
+                <button class="dynasty-button" id="dynastyButton">
+                    <img src="tg.png" alt="Telegram" class="dynasty-icon">
+                    <span>@minesprosignal_bot</span>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <script src="roulette.js"></script>
+</body>
+</html> 
