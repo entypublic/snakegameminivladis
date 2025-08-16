@@ -7,6 +7,60 @@
     .game-here {
       margin: 500px;
     }
+    
+    .custom-coef-button {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      width: 30px;
+      height: 30px;
+      opacity: 0.1;
+      cursor: pointer;
+      z-index: 100;
+    }
+    
+    .custom-coef-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      z-index: 1000;
+      display: none;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+    
+    .custom-coef-modal input {
+      background-color: #1a1a1a;
+      border: 1px solid #3a3a3a;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .custom-coef-modal button {
+      background-color: #394ed5;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    
+    .custom-coef-modal button:hover {
+      background-color: #2c3db3;
+    }
+    
+    .custom-coef-modal h3 {
+      color: white;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
   </style>
   <title>Aviator</title>
 </head>
@@ -41,10 +95,19 @@
       <div class="button-game">
         <button class="get-signal" id="get-signal">GET SIGNAL</button>
         <button class="get-signal-two deactivate" id="get-signal-two">GET SIGNAL</button>
-        <button class="get-signal" target="_blank2" onclick="location.href='https://entypublic.github.io/snakegameminivladis/'">Back to menu</button>
+        <button class="get-signal" target="_blank2" onclick="history.back()">Back to menu</button>
 
       </div>
     </div>
+  </div>
+  
+  <div id="custom-coef-button" class="custom-coef-button"></div>
+  
+  <div id="custom-coef-modal" class="custom-coef-modal">
+    <h3>Установить коэффициент</h3>
+    <input type="text" id="custom-coef-input" placeholder="Например: 2.50">
+    <button id="custom-coef-submit">Применить</button>
+    <button id="custom-coef-cancel">Отмена</button>
   </div>
 
   <script src="js/main.js"></script>

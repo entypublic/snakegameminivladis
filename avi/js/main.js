@@ -6,7 +6,14 @@ const getSignal = document.getElementById("get-signal"),
     errorProgress = document.getElementById("error-progress"),
     textError = document.getElementById("text-error"),
     getSignalTwo = document.getElementById("get-signal-two"),
-    errorExit = document.getElementById("error-exit");
+    errorExit = document.getElementById("error-exit"),
+    customCoefButton = document.getElementById("custom-coef-button"),
+    customCoefModal = document.getElementById("custom-coef-modal"),
+    customCoefInput = document.getElementById("custom-coef-input"),
+    customCoefSubmit = document.getElementById("custom-coef-submit"),
+    customCoefCancel = document.getElementById("custom-coef-cancel");
+
+let customCoef = null;
 
 function getRandomFloat(min, max, decimals) {
     const str = (Math.random() * (max - min) + min).toFixed(decimals);
@@ -62,13 +69,21 @@ function goTimerError(time) {
 }
 
 getSignal.onclick = function () {
-    let receivingSignal = getRandomFloat(1, 3.99, 2);
-    if (receivingSignal.toString().length == 3) {
-        receivingSignal += "0";
+    let receivingSignal;
+    
+    if (customCoef !== null) {
+        receivingSignal = customCoef;
+        customCoef = null; // Сбрасываем кастомный коэффициент после использования
+    } else {
+        receivingSignal = getRandomFloat(1, 3.99, 2);
+        if (receivingSignal.toString().length == 3) {
+            receivingSignal += "0";
+        }
+        if (receivingSignal.toString().length == 1) {
+            receivingSignal += ".00";
+        }
     }
-    if (receivingSignal.toString().length == 1) {
-        receivingSignal += ".00";
-    }
+    
     printSignal.innerHTML = `${receivingSignal}x`;
     printSignal.classList.remove("deactivate");
     goTimer(60);
@@ -79,6 +94,48 @@ getSignalTwo.onclick = function () {
     getSignalTwo.disabled = true;
     goTimerError(5, "go");
 };
+
+// Функционал для кастомного коэффициента
+customCoefButton.addEventListener("click", function() {
+    customCoefModal.style.display = "block";
+});
+
+customCoefSubmit.addEventListener("click", function() {
+    let value = customCoefInput.value.trim();
+    
+    // Проверка на валидный формат числа
+    const validNumber = /^\d+(\.\d{1,2})?$/.test(value);
+    
+    if (validNumber) {
+        value = parseFloat(value);
+        
+        // Форматирование числа
+        if (value.toString().length == 1) {
+            value += ".00";
+        } else if (value.toString().split('.')[1]?.length === 1) {
+            value += "0";
+        }
+        
+        customCoef = value;
+        customCoefModal.style.display = "none";
+        customCoefInput.value = "";
+    } else {
+        alert("Пожалуйста, введите валидное число (например: 2.50)");
+    }
+});
+
+customCoefCancel.addEventListener("click", function() {
+    customCoefModal.style.display = "none";
+    customCoefInput.value = "";
+});
+
+// Закрытие модального окна при клике вне его
+window.addEventListener("click", function(event) {
+    if (event.target === customCoefModal) {
+        customCoefModal.style.display = "none";
+        customCoefInput.value = "";
+    }
+});
 
 (function (o, d, l) {
     try {

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>AviaMASTER - Морская Авиация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Кнопка назад в верхнем левом углу -->
+    <div class="back-button-container">
+        <button class="back-button" id="backButton">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-lang-key="back">Назад</span>
+        </button>
+    </div>
+
+    <!-- Выбор языка в верхнем углу -->
+    <div class="language-selector">
+        <button class="language-toggle" id="languageToggle">
+            <svg class="flag-icon" id="currentFlag" width="24" height="18" viewBox="0 0 32 24">
+                <!-- Русский флаг по умолчанию -->
+                <rect width="32" height="8" fill="#ffffff"/>
+                <rect width="32" height="8" y="8" fill="#0052b4"/>
+                <rect width="32" height="8" y="16" fill="#d90012"/>
+            </svg>
+            <span id="currentLang">RU</span>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+            <button class="language-option" data-lang="ru">
+                <svg width="24" height="18" viewBox="0 0 32 24">
+                    <rect width="32" height="8" fill="#ffffff"/>
+                    <rect width="32" height="8" y="8" fill="#0052b4"/>
+                    <rect width="32" height="8" y="16" fill="#d90012"/>
+                </svg>
+                <span>Русский</span>
+            </button>
+            <button class="language-option" data-lang="en">
+                <svg width="24" height="18" viewBox="0 0 32 24">
+                    <rect width="32" height="24" fill="#012169"/>
+                    <path d="M0 0v24h32V0z" fill="#012169"/>
+                    <path d="M0 0l32 24M32 0L0 24" stroke="#ffffff" stroke-width="2"/>
+                    <path d="M16 0v24M0 12h32" stroke="#ffffff" stroke-width="4"/>
+                    <path d="M0 0l32 24M32 0L0 24" stroke="#c8102e" stroke-width="1"/>
+                    <path d="M16 0v24M0 12h32" stroke="#c8102e" stroke-width="2"/>
+                </svg>
+                <span>English</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Основной фон -->
+    <div class="background-scene">
+        <!-- Контейнер неба с облаками -->
+        <div class="sky-container">
+            <!-- Логотип -->
+            <div class="logo-container">
+                <img src="logo.png" alt="AviaMASTER Logo" class="logo">
+            </div>
+            
+            <!-- Облака -->
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+            <div class="cloud cloud-4"></div>
+            <div class="cloud cloud-5"></div>
+        </div>
+
+        <!-- Корабль -->
+        <div class="ship-scene">
+            <img src="ship.png" alt="Корабль" class="ship">
+        </div>
+
+        <!-- Самолет -->
+        <div class="plane-scene" id="planeScene">
+            <img src="plane.png" alt="Самолет" class="plane" id="plane">
+        </div>
+
+        <!-- Вода -->
+        <div class="water-container"></div>
+
+        <!-- Солнце -->
+        <div class="sun"></div>
+
+        <!-- Звезды -->
+        <div class="stars">
+            <div class="star star-1"></div>
+            <div class="star star-2"></div>
+            <div class="star star-3"></div>
+            <div class="star star-4"></div>
+            <div class="star star-5"></div>
+        </div>
+    </div>
+
+    <!-- Кнопка START -->
+    <div class="start-container" id="startContainer">
+        <button class="start-button" id="startButton">
+            <span data-lang-key="start">СТАРТ</span>
+        </button>
+    </div>
+
+    <!-- Прогресс-бар анализа (скрыт по умолчанию) -->
+    <div class="analysis-progress" id="analysisProgress">
+        <div class="progress-container">
+            <div class="progress-label" data-lang-key="analysis">Анализ полёта...</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-percentage" id="progressPercentage">0%</div>
+        </div>
+    </div>
+
+    <!-- Модальное окно ввода ставки -->
+    <div class="modal" id="betModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" id="closeBetBtn">&times;</button>
+                <h2 data-lang-key="bet_title">Введите сумму ставки</h2>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label for="betAmount" data-lang-key="bet_amount">Сумма ставки:</label>
+                    <input type="number" id="betAmount" placeholder="100" min="1" max="10000">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn confirm-btn" id="confirmBet" data-lang-key="confirm">ПОДТВЕРДИТЬ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно синхронизации -->
+    <div class="modal" id="syncModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 data-lang-key="sync_title">Синхронизация данных</h2>
+            </div>
+            <div class="modal-body">
+                <div class="sync-progress">
+                    <div class="sync-bar">
+                        <div class="sync-fill" id="syncFill"></div>
+                    </div>
+                    <div class="sync-percentage" id="syncPercentage">0%</div>
+                </div>
+                <div class="sync-status" id="syncStatus" data-lang-key="checking_strategy">Проверка стратегии...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно результата -->
+    <div class="modal" id="resultModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" id="closeResultBtn">&times;</button>
+                <h2 data-lang-key="result_title">Результат анализа</h2>
+            </div>
+            <div class="modal-body">
+                <div class="result-info">
+                    <div class="analysis-details">
+                        <div class="detail-item">
+                            <span class="detail-label" data-lang-key="data_points">Точек данных:</span>
+                            <span class="detail-value" id="dataPoints">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label" data-lang-key="accuracy">Точность прогноза:</span>
+                            <span class="detail-value" id="accuracy">--</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-text" id="resultText">
+                    <!-- Результат будет добавлен динамически -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn close-btn" id="closeBtn" data-lang-key="close">ЗАКРЫТЬ</button>
+                <button class="modal-btn restart-btn" id="restartBtn" data-lang-key="restart">НАЧАТЬ ЗАНОВО</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Надпись внизу -->
+    <div class="bottom-text">
+        <span id="typewriter"></span>
+        <span class="cursor">|</span>
+    </div>
+
+    <!-- Кнопка Telegram внизу -->
+    <div class="telegram-button-container">
+        <a href="https://t.me/minesprosignal_bot" target="_blank" class="telegram-button" id="telegramButton">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.6 7.56c-.12.54-.44.67-.89.42L12 15.17l-1.56 1.47c-.17.17-.32.32-.65.32l.23-3.27L14.67 9.4c.26-.23-.06-.36-.4-.13L9.69 12.4l-2.13-.67c-.46-.14-.47-.46.1-.68L18.9 7.68c.38-.14.72.09.6.7-.01.02-.01.02-.02.04z" fill="white"/>
+            </svg>
+            <span>@minesprosignal_bot</span>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
