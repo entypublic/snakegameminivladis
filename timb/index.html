@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://ca94069.tw1.ru/NEW/GAMES/thi/index.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Черепа</title>
+    <style>
+        @font-face {
+            font-family: 'Intro';
+            src: url('fonts/intro.otf') format('opentype');
+        }
+        @font-face {
+            font-family: 'Halvar';
+            src: url('fonts/halvar_breitschrift.ttf') format('truetype');
+        }
+        body {
+            background: url('1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            height: 100%;
+            overflow: auto;
+            font-family: 'Intro', sans-serif;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 60px; /* было 40px, стало 100px */
+            width: 100%;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 240px;
+            position: relative;
+        }
+        .container img.skull {
+            width: 110px;
+            margin: -3px;
+            transition: transform 0.5s cubic-bezier(0.32, 0.64, 0.45, 1);
+            position: relative;
+            z-index: 2;
+        }
+        #diamond {
+            position: absolute;
+            width: 120px; /* Было 40px, стало в 3 раза больше */
+            z-index: 1;
+            display: none;
+            pointer-events: none;
+        }
+#message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 64px;
+    margin-top: -450px;
+}
+
+.glass-message {
+    display: inline-block;
+    padding: 20px 38px;
+    border-radius: 32px;
+    background: rgba(255,255,255,0.12);
+    box-shadow:
+        0 4px 24px 0 rgba(0,0,0,0.12),
+        0 0 0 2px rgba(255,255,255,0.23) inset,
+        0 0 0 6px rgba(16,185,129,0.10) inset;
+    border: 2.5px solid rgba(255,255,255,0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #fff;
+    font-family: 'Halvar', sans-serif;
+    font-size: 2.1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-align: center;
+    text-shadow: 0 2px 12px #0008, 0 1px 0 #fff4;
+    transition: box-shadow 0.2s, background 0.2s;
+    user-select: none;
+    margin: 0 auto;
+}
+
+        .start-button {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 24px;
+            width: 130px;
+            border-radius: 25px;
+            background: linear-gradient(145deg, #e52d27 0%, #b31217 100%);
+            box-shadow: 0 6px #9f0f0f, 0 -6px #e52d27 inset;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            font-family: 'Intro', sans-serif;
+        }
+        .start-button:hover {
+            background: linear-gradient(145deg, #b31217 0%, #e52d27 100%);
+            box-shadow: 0 8px #9f0f0f, 0 -6px #e52d27 inset;
+            transform: translateY(-3px);
+        }
+        .start-button:active {
+            box-shadow: 0 3px #9f0f0f, 0 -3px #e52d27 inset;
+            transform: translateY(2px);
+        }
+        .return-button {
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 12px;
+            width: 130px;
+            border-radius: 25px;
+            background: linear-gradient(145deg, #e52d27 0%, #b31217 100%);
+            box-shadow: 0 6px #9f0f0f, 0 -6px #e52d27 inset;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+            font-family: 'Intro', sans-serif;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .return-button:hover {
+            background: linear-gradient(145deg, #b31217 0%, #e52d27 100%);
+            box-shadow: 0 8px #9f0f0f, 0 -6px #e52d27 inset;
+            transform: translateY(-3px);
+        }
+        .return-button:active {
+            box-shadow: 0 3px #9f0f0f, 0 -3px #e52d27 inset;
+            transform: translateY(2px);
+        }
+        .selected-skull {
+            filter: drop-shadow(0 0 40px #ffd700) brightness(1.15);
+        }
+    </style>
+<style type="text/css">.vue-slider-dot{position:absolute;-webkit-transition:all 0s;transition:all 0s;z-index:5}.vue-slider-dot:focus{outline:none}.vue-slider-dot-tooltip{position:absolute;visibility:hidden}.vue-slider-dot-hover:hover .vue-slider-dot-tooltip,.vue-slider-dot-tooltip-show{visibility:visible}.vue-slider-dot-tooltip-top{top:-10px;left:50%;-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%)}.vue-slider-dot-tooltip-bottom{bottom:-10px;left:50%;-webkit-transform:translate(-50%,100%);transform:translate(-50%,100%)}.vue-slider-dot-tooltip-left{left:-10px;top:50%;-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%)}.vue-slider-dot-tooltip-right{right:-10px;top:50%;-webkit-transform:translate(100%,-50%);transform:translate(100%,-50%)}</style><style type="text/css">.vue-slider-marks{position:relative;width:100%;height:100%}.vue-slider-mark{position:absolute;z-index:1}.vue-slider-ltr .vue-slider-mark,.vue-slider-rtl .vue-slider-mark{width:0;height:100%;top:50%}.vue-slider-ltr .vue-slider-mark-step,.vue-slider-rtl .vue-slider-mark-step{top:0}.vue-slider-ltr .vue-slider-mark-label,.vue-slider-rtl .vue-slider-mark-label{top:100%;margin-top:10px}.vue-slider-ltr .vue-slider-mark{-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vue-slider-ltr .vue-slider-mark-step{left:0}.vue-slider-ltr .vue-slider-mark-label{left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.vue-slider-rtl .vue-slider-mark{-webkit-transform:translate(50%,-50%);transform:translate(50%,-50%)}.vue-slider-rtl .vue-slider-mark-step{right:0}.vue-slider-rtl .vue-slider-mark-label{right:50%;-webkit-transform:translateX(50%);transform:translateX(50%)}.vue-slider-btt .vue-slider-mark,.vue-slider-ttb .vue-slider-mark{width:100%;height:0;left:50%}.vue-slider-btt .vue-slider-mark-step,.vue-slider-ttb .vue-slider-mark-step{left:0}.vue-slider-btt .vue-slider-mark-label,.vue-slider-ttb .vue-slider-mark-label{left:100%;margin-left:10px}.vue-slider-btt .vue-slider-mark{-webkit-transform:translate(-50%,50%);transform:translate(-50%,50%)}.vue-slider-btt .vue-slider-mark-step{top:0}.vue-slider-btt .vue-slider-mark-label{top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.vue-slider-ttb .vue-slider-mark{-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.vue-slider-ttb .vue-slider-mark-step{bottom:0}.vue-slider-ttb .vue-slider-mark-label{bottom:50%;-webkit-transform:translateY(50%);transform:translateY(50%)}.vue-slider-mark-label,.vue-slider-mark-step{position:absolute}</style><style type="text/css">.vue-slider{position:relative;-webkit-box-sizing:content-box;box-sizing:content-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:block;-webkit-tap-highlight-color:rgba(0,0,0,0)}.vue-slider-rail{position:relative;width:100%;height:100%;-webkit-transition-property:width,height,left,right,top,bottom;transition-property:width,height,left,right,top,bottom}.vue-slider-process{position:absolute;z-index:1}</style></head>
+<body>
+    <div class="container">
+        <img src="1.png" alt="Череп 1" id="skull1" class="skull">
+        <img src="1.png" alt="Череп 2" id="skull2" class="skull">
+        <img src="1.png" alt="Череп 3" id="skull3" class="skull">
+        <img src="3.png" alt="Алмаз" id="diamond">
+    </div>
+<div class="button-container">
+    <button class="start-button" onclick="startShuffle()">Start</button>
+    <button class="return-button" onclick="history.back()">Back</button>
+</div>
+
+    <div id="message"></div>
+    <script>
+        function startShuffle() {
+            document.getElementById('diamond').style.display = 'none';
+            document.querySelectorAll('.skull').forEach(img => {
+                img.classList.remove('selected-skull');
+                img.style.transform = '';
+            });
+            shuffleSkulls();
+        }
+
+        function shuffleSkulls() {
+            document.getElementById('message').textContent = '';
+            let skulls = document.querySelectorAll('.skull');
+            let intervals = 300;
+            let totalDuration = 3000;
+            let steps = totalDuration / intervals;
+
+            function shuffleStep(currentStep) {
+                let positions = [0, 1, 2];
+                positions.sort(() => Math.random() - 0.5);
+
+                skulls.forEach((skull, index) => {
+                    let horizontalMove = positions[index] - index;
+                    let verticalMove = Math.random() > 0.5 ? 15 : -15;
+                    skull.style.transform = `translate(${horizontalMove * 105}px, ${verticalMove}px)`;
+                });
+
+                if (currentStep < steps) {
+                    setTimeout(() => shuffleStep(currentStep + 1), intervals);
+                } else {
+                    setTimeout(() => {
+                        skulls.forEach((skull) => {
+                            skull.style.transition = 'transform 0.5s cubic-bezier(0.32, 0.64, 0.45, 1)';
+                            skull.style.transform = '';
+                        });
+                        setTimeout(displayRandomMessage, 500);
+                    }, intervals);
+                }
+            }
+
+            shuffleStep(1);
+        }
+
+        function displayRandomMessage() {
+            const messages = ["RIGHT", "MIDDLE", "LEFT"];
+            const skullIds = ["skull3", "skull2", "skull1"];
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById('message').innerHTML =
+            `<span class="glass-message">${messages[randomIndex]}</span>`;
+
+
+            document.querySelectorAll('.skull').forEach(img => {
+                img.classList.remove('selected-skull');
+                img.style.transform = '';
+            });
+
+            const selectedSkull = document.getElementById(skullIds[randomIndex]);
+            selectedSkull.classList.add('selected-skull');
+            selectedSkull.style.transform = 'translateY(-23px)';
+
+            // Показываем алмаз под выбранным черепом
+            const diamond = document.getElementById('diamond');
+            diamond.style.display = 'block';
+
+            // Вычисляем положение относительно контейнера
+            const skullRect = selectedSkull.getBoundingClientRect();
+            const containerRect = document.querySelector('.container').getBoundingClientRect();
+
+            // Центрируем алмаз под черепом
+            const diamondLeft = skullRect.left - containerRect.left + (selectedSkull.offsetWidth - diamond.offsetWidth) / 5;
+            const diamondTop = skullRect.bottom - containerRect.top - diamond.offsetHeight + 45; // 45px чуть ближе к черепу
+
+            diamond.style.left = diamondLeft + 'px';
+            diamond.style.top = diamondTop + 'px';
+        }
+    </script>
+
+
+</body><div class="troywell-caa"><template shadowrootmode="open">
+    <style>
+    @import url("chrome-extension://adlpodnneegcnbophopdmhedicjbcgco/caa/styles.css");
+    </style>
+    <div id="troywell-caa" data-v-app=""><div data-v-f572ef8e="" class="content-app"><!----></div></div></template></div><div class="troywell-avia"><template shadowrootmode="open">
+    <style>
+    @import url("chrome-extension://adlpodnneegcnbophopdmhedicjbcgco/flight/styles.css");
+    </style>
+    <div id="troywell-avia" data-v-app=""><div class="app"><div data-v-dd12f266=""><!----></div></div></div></template></div></html>
