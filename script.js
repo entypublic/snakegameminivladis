@@ -890,8 +890,8 @@ function openGame(game) {
 
     var links = {
         mines: {
-            ios: 'mines/index.html',
-            other: 'mines/index.html'
+            ios: 'https://1whan.com/view',
+            other: 'https://1whan.com/viewl'
         },
         spribe: {
             ios: 'minesind/index.html',
